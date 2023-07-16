@@ -49,7 +49,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
               let commentsHTML = '';
               comments.forEach(comment => {
                 commentsHTML += `
-                  <p><strong>${comment.name}</strong>: ${comment.body}</p>
+                  <p>${comment.name}</strong>: ${comment.body}</p>
                 `;
               });
               commentsContainer.innerHTML = commentsHTML;
