@@ -1,36 +1,28 @@
 *{
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
 }
-    .user-profile {
-      display: flex;
-      align-items: center;
-    }
+.user-profile {
+  display: flex;
+  align-items: center;
+}
 
-    .user-profile img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
-    .post {
-      margin-top: 20px;
-    }
+.post {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 
-    .post-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .post-body {
-      margin-bottom: 10px;
-    }
-
-    .comment {
-      margin-left: 20px;
-      margin-bottom: 10px;
-      display: none;
-    }
-  
+.comments {
+  display: none;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
