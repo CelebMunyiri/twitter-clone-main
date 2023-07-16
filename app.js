@@ -1,75 +1,66 @@
+
 // Part 1: Fetch user details and build profile page
 fetch('https://jsonplaceholder.typicode.com/users/1')
-  .then(response => response.json())
-  .then(user => {
-    const profilePicture = document.getElementById('profilePicture');
-    const userName = document.getElementById('userName');
+.then(response => response.json())
+.then(user => {
+  const profileContainer = document.getElementById('user-profile');
+  const profileHTML = `
+    <div class="user-profile">
+      <img class="user-avatar" src="your_avatar_url_here" alt="User Avatar">
+      <div>
+        <h3>${user.name}</h3>
+        <p>Email: ${user.email}</p>
+        <p>Website: ${user.website}</p>
+      </div>
+    </div>
+  `;
+  profileContainer.innerHTML = profileHTML;
+});
 
-    profilePicture.src = 'path_to_profile_image'; // Set the profile picture image source here
-    userName.textContent = user.name;
-  })
-  .catch(error => console.log(error));
-
-// Part 2: Fetch user's posts/tweets
+// Part 2: Fetch user posts
 fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
-  .then(response => response.json())
-  .then(posts => {
-    const postsContainer = document.getElementById('posts');
+.then(response => response.json())
+.then(posts => {
+  const postsContainer = document.getElementById('posts');
+  let postsHTML = '';
+  posts.forEach(post => {
+    postsHTML += `
+      <div class="post">
+        <h4>${post.title}</h4>
+        <p>${post.body}</p>
+        <button class="show-comments-btn" data-post-id="${post.id}">Show Comments</button>
+        <div class="comments" id="comments-${post.id}"></div>
+      </div>
+    `;
+  });
+  postsContainer.innerHTML = postsHTML;
 
-    posts.forEach(post => {
-      const postElement = document.createElement('div');
-      postElement.classList.add('post');
+  // Part 3: Show/hide comments on button click
+  const showCommentsButtons = document.getElementsByClassName('show-comments-btn');
+  Array.from(showCommentsButtons).forEach(button => {
+    button.addEventListener('click', () => {
+      const postId = button.getAttribute('data-post-id');
+      const commentsContainer = document.getElementById(`comments-${postId}`);
+      const commentsDisplay = commentsContainer.style.display;
 
-      const postTitle = document.createElement('h3');
-      postTitle.classList.add('post-title');
-      postTitle.textContent = post.title;
-
-      const postBody = document.createElement('p');
-      postBody.classList.add('post-body');
-      postBody.textContent = post.body;
-
-      const commentButton = document.createElement('button');
-      commentButton.textContent = 'Show Comments';
-      commentButton.addEventListener('click', () => showComments(post.id));
-
-      const commentContainer = document.createElement('div');
-      commentContainer.classList.add('comment-container');
-      commentContainer.id = `comments-${post.id}`;
-
-      postElement.appendChild(postTitle);
-      postElement.appendChild(postBody);
-      postElement.appendChild(commentButton);
-      postElement.appendChild(commentContainer);
-
-      postsContainer.appendChild(postElement);
+      if (commentsDisplay === 'none') {
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
+          .then(response => response.json())
+          .then(comments => {
+            let commentsHTML = '';
+            comments.forEach(comment => {
+              commentsHTML += `
+                <p><strong>${comment.name}</strong>: ${comment.body}</p>
+              `;
+            });
+            commentsContainer.innerHTML = commentsHTML;
+            commentsContainer.style.display = 'block';
+            button.textContent = 'Hide Comments';
+          });
+      } else {
+        commentsContainer.style.display = 'none';
+        button.textContent = 'Show Comments';
+      }
     });
-  })
-  .catch(error => console.log(error));
-
-// Part 3: Show comments for a post
-function showComments(postId) {
-  const commentContainer = document.getElementById(`comments-${postId}`);
-
-  fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-    .then(response => response.json())
-    .then(comments => {
-      commentContainer.innerHTML = ''; // Clear existing comments
-
-      comments.forEach(comment => {
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('comment');
-
-        const commentName = document.createElement('h4');
-        commentName.textContent = comment.name;
-
-        const commentBody = document.createElement('p');
-        commentBody.textContent = comment.body;
-
-        commentElement.appendChild(commentName);
-        commentElement.appendChild(commentBody);
-
-        commentContainer.appendChild(commentElement);
-      });
-    })
-    .catch(error => console.log(error));
-}
+  });
+});
