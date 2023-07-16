@@ -26,3 +26,9 @@
   border: 1px solid #ccc;
   padding: 10px;
 }
+
+.post img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

@@ -25,6 +25,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
     posts.forEach(post => {
       postsHTML += `
         <div class="post">
+        <img src='https://cdn.pixabay.com/photo/2023/07/13/08/50/squirrel-8124227_640.jpg' alt='avatar image'>
           <h4>${post.title}</h4>
           <p>${post.body}</p>
           <button class="show-comments-btn" data-post-id="${post.id}">Show Comments</button>
