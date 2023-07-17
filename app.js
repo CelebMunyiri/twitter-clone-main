@@ -8,15 +8,15 @@ fetch('https://jsonplaceholder.typicode.com/users')
     <div class="profile">
     <h2 style="color: rgb(24, 4, 4);">Twitter Clone</h2>
      <select name="" id="">
-        <option value="">${user[0].name}</option>
-        <option value="">${user[1].name}</option>
-        <option value="">${user[2].name}</option>
-        <option value="">${user[3].name}</option>
-        <option value="">${user[4].name}</option>
-        <option value="">${user[5].name}</option>
-        <option value="">${user[6].name}</option>
-        <option value="">${user[7].name}</option>
-        <option value="">${user[8].name}</option>
+        <option value="0">${user[0].name}</option>
+        <option value="1">${user[1].name}</option>
+        <option value="2">${user[2].name}</option>
+        <option value="3">${user[3].name}</option>
+        <option value="4">${user[4].name}</option>
+        <option value="5">${user[5].name}</option>
+        <option value="6">${user[6].name}</option>
+        <option value="7">${user[7].name}</option>
+        <option value="8">${user[8].name}</option>
         
     </select> 
   </div>
