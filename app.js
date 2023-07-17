@@ -32,17 +32,21 @@ fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
         <div class="post">
        
         <img src='https://cdn.pixabay.com/photo/2023/07/13/08/50/squirrel-8124227_640.jpg' alt='avatar image'>
-        <h3> General Matejagwo</h3> @general_matejagwo
-        <p></p>
+       <div class="intro"
+        <h3> General Matejagwo <iconify-icon icon="ic:round-verified" style="color: blue;"></iconify-icon></h3><iconify-icon icon="skill-icons:twitter" style="color: gray;"></iconify-icon>
+        </div>
+        @general_matejagwo
+        
           <h4>${post.title}</h4>
           <p>${post.body}</p>
           
+          <div class="activities">
           <button class="show-comments-btn" data-post-id="${post.id}"><iconify-icon icon="iconamoon:comment-light" style="color: blue;"></iconify-icon>6</button>
-          <iconify-icon icon="system-uicons:retweet" style="color: blue;"></iconify-icon>9
-          <iconify-icon icon="icon-park:like" style="color: blue;"></iconify-icon>182
-
+          <div><iconify-icon icon="system-uicons:retweet" style="color: blue;"></iconify-icon>9</div>
+         <div> <iconify-icon icon="icon-park:like" style="color: blue;"></iconify-icon>182</div>
+         <div> <iconify-icon icon="mdi:analytics" style="color: gray;"></iconify-icon>203</div>
           <iconify-icon icon="material-symbols:share-outline" style="color: gray;"></iconify-icon>
-          
+          </div>
           <div class="comments" id="comments-${post.id}"></div>
           
         </div>
