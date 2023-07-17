@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: blue;
 }
 .profile input{
     border: none;
@@ -57,7 +58,7 @@
 }
 .post {
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border-top: 1px solid rgb(231, 219, 219);
   padding: 10px;
 }
 
