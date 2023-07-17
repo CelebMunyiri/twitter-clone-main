@@ -2,17 +2,26 @@
 <html>
 <head>
   <title>Twitter Clone</title>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link rel="stylesheet" href="style.css">
+
 
 </head>
 <body>
-  <div id="user-profile-container">
-    <h2>User Profile</h2>
-    <div id="user-profile"></div>
+  <div id="user-profile-container"
+  style="background-color: blue;">
+    <h2 style="color: white;">Profile</h2>
+    <div id="user-profile" style="color: black;background:white;"></div>
   </div>
 
   <div id="posts-container">
-    <h2>Posts/Tweets</h2>
+    <div class="choose-what">
+        <h2 style="color: blue;">Tweets</h2>
+        <h2>Replies</h2>
+        <h2>Highlights</h2>
+        <h2>Media</h2>
+    </div>
+   
     <div id="posts"></div>
   </div>
   <script src="app.js"></script>
