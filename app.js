@@ -1,5 +1,5 @@
-// Part 1: Fetch user details and build profile page from the API provided,
-for(let i=0;i<=10;i++)
+
+// for(let i=0;i<=10;i++)
 fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json())
   .then(user => {
@@ -37,7 +37,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
   });
 
 
-// Part 2: Fetch user posts from the given API
+
 fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
   .then(response => response.json())
   .then(posts => {
@@ -71,7 +71,7 @@ fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
     });
     postsContainer.innerHTML = postsHTML;
 
-    // Part 3: Show/hide comments on button click to show different comments of the given post
+    
     const showCommentsButtons = document.getElementsByClassName('show-comments-btn');
     Array.from(showCommentsButtons).forEach(button => {
       button.addEventListener('click', () => {
