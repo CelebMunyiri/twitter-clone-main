@@ -1,16 +1,12 @@
-let user_id=1
 mySelect=document.querySelector('#mySelect')
 
 mySelect.addEventListener('change',()=>{
-  
+  // let user_id=1
   user_id=mySelect.value
   console.log(user_id)
 
 // console.log(`this is ${user_id}`)
  
-
-
-
 fetch(`https://jsonplaceholder.typicode.com/users/${user_id}`)
   .then(response => response.json())
   .then(user => {
@@ -50,7 +46,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user_id}`)
        <div>
         <img src='https://media.istockphoto.com/id/1450268558/photo/summer-selfie.jpg?b=1&s=170667a&w=0&k=20&c=Vipvrhj292OQRhFkUTIqKnbtMlSn7EWlIbZRzWE66TU=' alt="User image'>
        <div class="intro"
-        <h3> ${post.name}<iconify-icon icon="ic:round-verified" style="color: blue;"></iconify-icon></h3><iconify-icon icon="skill-icons:twitter" style="color: gray;"></iconify-icon>
+        <h3> jug<iconify-icon icon="ic:round-verified" style="color: blue;"></iconify-icon></h3><iconify-icon icon="skill-icons:twitter" style="color: gray;"></iconify-icon>
         </div>
         
         @general_matejagwo
